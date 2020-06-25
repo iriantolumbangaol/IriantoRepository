@@ -1,0 +1,48 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Masukkan Data Kelas</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<div align="center">
+
+		<h1>Data Kelas Baru</h1>
+		<br>
+		<form action="#" th:action="@{/save}" th:object="${kelasModel}" method="post">
+		<table>
+			<tr>
+				<td>Kode Kelas</td>
+				<td><input type="text" th:field=*{kodeKelas}></td>
+			</tr>
+
+			<tr>
+				<td>Nama Kelas</td>
+				<td><input type="text" th:field=*{namaKelas}></td>
+			</tr>
+
+			<tr>
+			<tr>
+				<td>Tingkat</td>
+				<td><input type="number" th:field=*{tingkat}></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><button class="btn btn-primary" type="submit">Submit</button>
+					<button class="btn btn-warning" type="reset">Reset</button></td>
+				<td></td>
+			</tr>
+
+		</table>
+		</form>
+	</div>
+
+</body>
+</html>

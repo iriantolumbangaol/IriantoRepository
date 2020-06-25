@@ -1,10 +1,12 @@
 package com.example.kelas.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jca.cci.RecordTypeNotSupportedException;
 import org.springframework.stereotype.Service;
 
 import com.example.kelas.model.KelasModel;
@@ -25,8 +27,19 @@ public class KelasService {
 		return this.kelasRepository.findAll();
 	}
 	
-	public void update(KelasModel kelasModel) {
-		this.kelasRepository.getOne(id);
+	public KelasModel get(String kodeKelas) {
+		return kelasRepository.findById(kodeKelas).get();
 	}
+	
+	public void delete(String kodeKelas) {
+		kelasRepository.deleteById(kodeKelas);
+	}
+	
+	public void update(KelasModel kelasModel) {
+		this.kelasRepository.save(kelasModel);
+	}
+	
+	
+	
 
 }
